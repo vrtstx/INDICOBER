@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Mi Juego UwU</title>
 	<style>
 		body {
@@ -32,26 +32,10 @@
 			margin: 10px;
 			border-radius: 8px;
 			transition: transform 0.3s;
-			cursor: zoom-in;
+			cursor: pointer;
 		}
 		.gallery img:hover {
 			transform: scale(1.05);
-		}
-		.like-button {
-			background-color: #ff69b4;
-			color: white;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 20px;
-			cursor: pointer;
-			font-size: 1em;
-		}
-		.like-button:hover {
-			background-color: #ff85c1;
-		}
-		#like-count {
-			display: inline-block;
-			margin-left: 10px;
 		}
 		.steam-link {
 			display: block;
@@ -65,7 +49,6 @@
 			color: white;
 			font-weight: bold;
 		}
-		/* Lightbox */
 		#lightbox {
 			display: none;
 			position: fixed;
@@ -100,45 +83,25 @@
 
 		<h2>🖼️ Galería</h2>
 		<div class="gallery">
-			<img src="https://pbs.twimg.com/media/GrCzzSsW4AE6xeh?format=jpg&name=large" alt="prueva">
-			<img src="https://pbs.twimg.com/media/GqtH9kxWsAAH1WE?format=jpg&name=4096x4096" alt="Captura 2">
-			<img src="https://pbs.twimg.com/media/GnyQcyZXEAA_aSC?format=jpg&name=4096x4096" alt="Captura 3">
+			<img src="https://pbs.twimg.com/media/GrCzzSsW4AE6xeh?format=jpg&name=large" alt="prueva" onclick="openLightbox(this.src)" />
+			<img src="https://pbs.twimg.com/media/GqtH9kxWsAAH1WE?format=jpg&name=4096x4096" alt="Captura 2" onclick="openLightbox(this.src)" />
+			<img src="https://pbs.twimg.com/media/GnyQcyZXEAA_aSC?format=jpg&name=4096x4096" alt="Captura 3" onclick="openLightbox(this.src)" />
 		</div>
-
-		<h2>❤️ ¿Te gustó?</h2>
-		<button class="like-button" onclick="addLike()">Dame un like UwU</button>
-		<span id="like-count">0</span> likes
 
 		<a class="steam-link" href="https://store.steampowered.com/" target="_blank">¡Juega en Steam!</a>
 	</section>
 
-	<!-- Lightbox fuera de la galería -->
 	<div id="lightbox" onclick="closeLightbox()">
-		<img id="lightbox-img" src="" alt="Zoom Imagen">
+		<img id="lightbox-img" src="" alt="Zoom Imagen" />
 	</div>
 
 	<script>
-		let likes = 0;
-		function addLike() {
-			likes++;
-			document.getElementById("like-count").textContent = likes;
+		function openLightbox(src) {
+			document.getElementById('lightbox-img').src = src;
+			document.getElementById('lightbox').style.display = 'flex';
 		}
-
-		// Zoom efecto
-		const galleryImages = document.querySelectorAll('.gallery img');
-		const lightbox = document.getElementById('lightbox');
-		const lightboxImg = document.getElementById('lightbox-img');
-
-		galleryImages.forEach(img => {
-			img.addEventListener('click', () => {
-				lightbox.style.display = 'flex';
-				lightboxImg.src = img.src;
-			});
-		});
-
 		function closeLightbox() {
-			lightbox.style.display = 'none';
-			lightboxImg.src = '';
+			document.getElementById('lightbox').style.display = 'none';
 		}
 	</script>
 
