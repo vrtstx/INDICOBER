@@ -62,8 +62,29 @@
       box-shadow: 0 0 15px #00adeeaa;
       margin-bottom: 20px;
     }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      cursor: zoom-out;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #000;
+    }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -73,19 +94,19 @@
 
   <section>
     <h2>🖼️ capturas</h2>
-    
+
     <div class="gallery-item">
       <img src="https://pbs.twimg.com/media/GrCzzSsW4AE6xeh?format=jpg&name=large" alt="Jefe Final">
       <h3>Fenna uwu</h3>
       <p>asjksajkajksajkas es solo un dibujo de fenna uwu, aun no hay capturas disponibles uwu</p>
     </div>
-    
+
     <div class="gallery-item">
       <img src="imagenes/21.png" alt="Nuevo mapa">
       <h3>tuburonsin</h3>
       <p>🤯</p>
     </div>
-    
+
     <div class="gallery-item">
       <img src="https://pbs.twimg.com/media/GnyQcyZXEAA_aSC?format=jpg&name=4096x4096" alt="Animaciones mejoradas">
       <h3>otro dibujom uwu</h3>
@@ -93,4 +114,31 @@
     </div>
   </section>
 
+  <!-- Ventana de zoom -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Imagen ampliada">
+  </div>
+
+  <!-- Script para zoom -->
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    // Esperar a que la página cargue
+    window.onload = function() {
+      document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.addEventListener('click', () => openLightbox(img.src));
+      });
+    };
+  </script>
+
+</body>
 </html>
