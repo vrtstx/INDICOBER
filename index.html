@@ -1,109 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Mi Juego UwU</title>
-	<style>
-		body {
-			background-color: #1e1e2f;
-			color: #fdfdfd;
-			font-family: 'Arial', sans-serif;
-			margin: 0;
-			padding: 0;
-		}
-		header {
-			background-color: #292942;
-			padding: 20px;
-			text-align: center;
-		}
-		header h1 {
-			margin: 0;
-			font-size: 2.5em;
-		}
-		section {
-			padding: 30px;
-			max-width: 900px;
-			margin: auto;
-		}
-		.gallery img {
-			width: 100%;
-			max-width: 300px;
-			margin: 10px;
-			border-radius: 8px;
-			transition: transform 0.3s;
-			cursor: pointer;
-		}
-		.gallery img:hover {
-			transform: scale(1.05);
-		}
-		.steam-link {
-			display: block;
-			margin-top: 40px;
-			text-align: center;
-			font-size: 1.3em;
-			background: #00adee;
-			padding: 15px;
-			border-radius: 10px;
-			text-decoration: none;
-			color: white;
-			font-weight: bold;
-		}
-		#lightbox {
-			display: none;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100vw;
-			height: 100vh;
-			background-color: rgba(0, 0, 0, 0.8);
-			justify-content: center;
-			align-items: center;
-			z-index: 999;
-			cursor: zoom-out;
-		}
-		#lightbox img {
-			max-width: 90%;
-			max-height: 90%;
-			border-radius: 10px;
-			box-shadow: 0 0 20px #000;
-		}
-	</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galería con Descripciones y Videos UwU</title>
+  <style>
+    body {
+      background-color: #1e1e2f;
+      color: #fdfdfd;
+      font-family: 'Arial', sans-serif;
+      margin: 0; padding: 0;
+    }
+    header {
+      background-color: #292942;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    section {
+      padding: 20px 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .gallery-item {
+      margin-bottom: 25px;
+      border-radius: 10px;
+      background: #2e2e4a;
+      padding: 15px;
+      box-shadow: 0 0 10px #ff69b4aa;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px #ff85c1;
+    }
+    .gallery-item img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .gallery-item h3 {
+      margin: 0 0 5px 0;
+      color: #ff69b4;
+      font-weight: bold;
+    }
+    .gallery-item p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #ddd;
+    }
+    .video-section video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00adeeaa;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
 
-	<header>
-		<h1>Mi Juego UwU</h1>
-		<p>¡Bienvenid@ a la página oficial!</p>
-	</header>
+  <header>
+    <h1>Galería UwU</h1>
+    <p>Imágenes y videos del juego con descripciones kawaii 💖</p>
+  </header>
 
-	<section>
-		<h2>✨ Última actualización</h2>
-		<p>¡Añadimos un nuevo jefe final y un nuevo mapa secreto! También arreglamos bugs y mejoramos la animación de los personajes. 🐉💥</p>
+  <section>
+    <h2>🖼️ Imágenes con descripción</h2>
+    
+    <div class="gallery-item">
+      <img src="https://pbs.twimg.com/media/GrCzzSsW4AE6xeh?format=jpg&name=large" alt="Jefe Final">
+      <h3>Jefe Final</h3>
+      <p>¡Mira al poderoso dragón que añadimos como jefe final en esta actualización! 🐉🔥</p>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="https://pbs.twimg.com/media/GqtH9kxWsAAH1WE?format=jpg&name=4096x4096" alt="Nuevo mapa">
+      <h3>Mapa Secreto</h3>
+      <p>Explora este nuevo mapa secreto lleno de sorpresas y desafíos. 🌲✨</p>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="https://pbs.twimg.com/media/GnyQcyZXEAA_aSC?format=jpg&name=4096x4096" alt="Animaciones mejoradas">
+      <h3>Animaciones Mejoradas</h3>
+      <p>Los personajes ahora se mueven con más fluidez y estilo. ¡Mira esa pose! 💃🕺</p>
+    </div>
+  </section>
 
-		<h2>🖼️ Galería</h2>
-		<div class="gallery">
-			<img src="https://pbs.twimg.com/media/GrCzzSsW4AE6xeh?format=jpg&name=large" alt="prueva" onclick="openLightbox(this.src)" />
-			<img src="https://pbs.twimg.com/media/GqtH9kxWsAAH1WE?format=jpg&name=4096x4096" alt="Captura 2" onclick="openLightbox(this.src)" />
-			<img src="https://pbs.twimg.com/media/GnyQcyZXEAA_aSC?format=jpg&name=4096x4096" alt="Captura 3" onclick="openLightbox(this.src)" />
-		</div>
+  <section class="video-section">
+    <h2>🎥 Videos</h2>
+    <video controls poster="https://i.imgur.com/O2yqQ6C.jpg">
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+      Tu navegador no soporta la etiqueta de video.
+    </video>
 
-		<a class="steam-link" href="https://store.steampowered.com/" target="_blank">¡Juega en Steam!</a>
-	</section>
-
-	<div id="lightbox" onclick="closeLightbox()">
-		<img id="lightbox-img" src="" alt="Zoom Imagen" />
-	</div>
-
-	<script>
-		function openLightbox(src) {
-			document.getElementById('lightbox-img').src = src;
-			document.getElementById('lightbox').style.display = 'flex';
-		}
-		function closeLightbox() {
-			document.getElementById('lightbox').style.display = 'none';
-		}
-	</script>
+    <video controls poster="https://i.imgur.com/A8bDLS2.jpg">
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/tiger.webm" type="video/webm" />
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/tiger.mp4" type="video/mp4" />
+      Tu navegador no soporta la etiqueta de video.
+    </video>
+  </section>
 
 </body>
 </html>
